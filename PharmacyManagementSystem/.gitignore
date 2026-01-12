@@ -1,0 +1,6 @@
+﻿# Ignore local database configuration
+App.config
+
+# Ignore build folders
+bin/
+obj/
