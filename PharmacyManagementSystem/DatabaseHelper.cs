@@ -10,7 +10,7 @@ namespace PharmacyManagementSystem
 {
     public class DatabaseHelper
     {
-        public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["smsdb"].ConnectionString;
+        public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString;
 
         //This returns the connection string  
         private static string _connectionString = string.Empty;
