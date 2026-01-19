@@ -38,8 +38,9 @@ namespace PharmacyManagementSystem
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\..")));
             //Path.Combine(Application.StartupPath, ".."));
 
-            string connStr = (ConfigurationManager.ConnectionStrings["smsdb"].ConnectionString);
+            string connStr = (ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString);
             CONNECTION_STRING = connStr;
+            _connectionString = connStr;
         }
 
         /// <summary>
@@ -53,6 +54,14 @@ namespace PharmacyManagementSystem
             SqlCommand sqlCmd = new SqlCommand(sql, conn);
             return sqlCmd;
         }
+        public SqlCommand GetCommand(string sql, params SqlParameter[] parameters)
+        {
+            SqlCommand cmd = GetCommand(sql);
+            if (parameters != null && parameters.Length > 0)
+                cmd.Parameters.AddRange(parameters);
+            return cmd;
+        }
+
 
         /// <summary>
         /// 
@@ -86,7 +95,7 @@ namespace PharmacyManagementSystem
             }
             catch (Exception ex)
             {
-                throw;
+                
             }
             finally
             {
@@ -112,7 +121,7 @@ namespace PharmacyManagementSystem
             }
             catch (Exception ex)
             {
-                throw;
+                
             }
             finally
             {
@@ -137,7 +146,7 @@ namespace PharmacyManagementSystem
             }
             catch (Exception ex)
             {
-                throw;
+               
             }
             finally
             {
