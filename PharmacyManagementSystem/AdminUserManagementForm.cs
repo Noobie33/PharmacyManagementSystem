@@ -104,5 +104,16 @@ namespace PharmacyManagementSystem
             db.ExecuteNonQuery(cmd);
             LoadUsers();
         }
+
+        private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
+
+            txtUsername.Text = row.Cells["Username"].Value.ToString();
+            txtFullName.Text = row.Cells["FullName"].Value.ToString();
+            cmbRole.Text = row.Cells["RoleName"].Value.ToString();
+        }
     }
 }
