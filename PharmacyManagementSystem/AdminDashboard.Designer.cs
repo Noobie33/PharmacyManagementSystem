@@ -43,7 +43,7 @@
             // 
             // btnManageUsers
             // 
-            this.btnManageUsers.Location = new System.Drawing.Point(342, 190);
+            this.btnManageUsers.Location = new System.Drawing.Point(292, 187);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(117, 23);
             this.btnManageUsers.TabIndex = 2;
