@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
@@ -12,7 +11,6 @@ namespace PharmacyManagementSystem
     {
         public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString;
 
-        //This returns the connection string  
         private static string _connectionString = string.Empty;
 
         public static string ConnectionString
@@ -23,38 +21,19 @@ namespace PharmacyManagementSystem
                 {
                     _connectionString = CONNECTION_STRING;
                 }
-
                 return _connectionString;
             }
         }
 
-        public DatabaseHelper(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-
-        public DatabaseHelper()
-        {
-            AppDomain.CurrentDomain.SetData("DataDirectory", Path.GetFullPath(Path.Combine(Application.StartupPath, "..\\..")));
-            //Path.Combine(Application.StartupPath, ".."));
-
-            string connStr = (ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString);
-            CONNECTION_STRING = connStr;
-            _connectionString = connStr;
-        }
-
-        /// <summary>
-        /// Returns a SqlCommand object to add some parameters in it. After you send this to Execute method.
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public SqlCommand GetCommand(string sql)
+        // Static method for getting a SQL command
+        public static SqlCommand GetCommand(string sql)
         {
             SqlConnection conn = new SqlConnection(ConnectionString);
             SqlCommand sqlCmd = new SqlCommand(sql, conn);
             return sqlCmd;
         }
-        public SqlCommand GetCommand(string sql, params SqlParameter[] parameters)
+
+        public static SqlCommand GetCommand(string sql, params SqlParameter[] parameters)
         {
             SqlCommand cmd = GetCommand(sql);
             if (parameters != null && parameters.Length > 0)
@@ -62,55 +41,49 @@ namespace PharmacyManagementSystem
             return cmd;
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public DataTable Execute(string sql)
+        // Static method to execute SQL and return DataTable
+        public static DataTable GetDataTable(string query, params SqlParameter[] parameters)
         {
-            DataTable dt = new DataTable();
-            SqlCommand cmd = GetCommand(sql);
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                if (parameters != null && parameters.Length > 0)
+                    cmd.Parameters.AddRange(parameters);
 
-            cmd.Connection.Open();
-            dt.Load(cmd.ExecuteReader());
-            cmd.Connection.Close();
-            return dt;
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
         }
 
-        /// <summary>
-        /// Returns DataTable
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        public DataTable Execute(SqlCommand command)
+        // Execute the command and return a DataTable
+        public static DataTable Execute(SqlCommand command)
         {
             DataTable dt = new DataTable();
             try
             {
-
-                command.Connection.Open();
-                dt.Load(command.ExecuteReader());
+                command.Connection.Open(); // Open connection
+                dt.Load(command.ExecuteReader()); // Load data from SqlDataReader into DataTable
             }
             catch (Exception ex)
             {
-                
+                // Log exception or handle it (optional)
+                throw new Exception("Database operation failed: " + ex.Message);
             }
             finally
             {
-                command.Connection.Close();
+                command.Connection.Close(); // Always close the connection
             }
 
-            return dt;
+            return dt; // Return the DataTable with data
         }
 
-        /// <summary>
-        /// returns affected row count
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public int ExecuteNonQuery(string sql)
+
+        // Execute Non-Query commands (Insert, Update, Delete)
+        public static int ExecuteNonQuery(string sql)
         {
             SqlCommand cmd = GetCommand(sql);
             int result = 0;
@@ -121,22 +94,17 @@ namespace PharmacyManagementSystem
             }
             catch (Exception ex)
             {
-                
+                // Handle exception
             }
             finally
             {
                 cmd.Connection.Close();
             }
-
             return result;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        public int ExecuteNonQuery(SqlCommand command)
+        // Overload ExecuteNonQuery for SqlCommand
+        public static int ExecuteNonQuery(SqlCommand command)
         {
             int result = 0;
             try
@@ -146,15 +114,13 @@ namespace PharmacyManagementSystem
             }
             catch (Exception ex)
             {
-               
+                // Handle exception
             }
             finally
             {
                 command.Connection.Close();
             }
-
             return result;
         }
-
     }
 }

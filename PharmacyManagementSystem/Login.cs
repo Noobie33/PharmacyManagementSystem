@@ -31,22 +31,22 @@ namespace PharmacyManagementSystem
 
             try
             {
-                DatabaseHelper db = new DatabaseHelper();
-
                 string sql = @"
-SELECT u.UserId, u.FullName, r.RoleName
-FROM dbo.Users u
-INNER JOIN dbo.Roles r ON r.RoleId = u.RoleId
-WHERE u.Username = @Username
-  AND u.[Password] = @Password
-  AND u.IsActive = 1;
-";
+        SELECT u.UserId, u.FullName, r.RoleName
+        FROM dbo.Users u
+        INNER JOIN dbo.Roles r ON r.RoleId = u.RoleId
+        WHERE u.Username = @Username
+          AND u.[Password] = @Password
+          AND u.IsActive = 1;
+        ";
 
-                SqlCommand cmd = db.GetCommand(sql,
+                
+                SqlCommand cmd = DatabaseHelper.GetCommand(sql,
                     new SqlParameter("@Username", username),
                     new SqlParameter("@Password", password));
 
-                DataTable dt = db.Execute(cmd);
+                
+                DataTable dt = DatabaseHelper.Execute(cmd);
 
                 if (dt.Rows.Count == 0)
                 {
@@ -54,10 +54,12 @@ WHERE u.Username = @Username
                     return;
                 }
 
+                
                 Session.UserId = Convert.ToInt32(dt.Rows[0]["UserId"]);
                 Session.FullName = dt.Rows[0]["FullName"].ToString();
                 Session.RoleName = dt.Rows[0]["RoleName"].ToString();
 
+                
                 OpenDashboard(Session.RoleName);
             }
             catch (Exception ex)
