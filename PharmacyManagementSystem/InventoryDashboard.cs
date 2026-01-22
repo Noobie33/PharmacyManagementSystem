@@ -16,5 +16,12 @@ namespace PharmacyManagementSystem
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CategoryForm ca = new CategoryForm();
+            ca.Show();
+            this.Hide();
+        }
     }
 }
