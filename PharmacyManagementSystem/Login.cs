@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PharmacyManagementSystem.Forms;   
 namespace PharmacyManagementSystem
 {
     public partial class Login : Form
@@ -54,11 +48,12 @@ WHERE u.Username = @Username
                     return;
                 }
 
-                Session.UserId = Convert.ToInt32(dt.Rows[0]["UserId"]);
-                Session.FullName = dt.Rows[0]["FullName"].ToString();
-                Session.RoleName = dt.Rows[0]["RoleName"].ToString();
+                // Option A: local variables
+                int userId = Convert.ToInt32(dt.Rows[0]["UserId"]);
+                string fullName = dt.Rows[0]["FullName"].ToString();
+                string roleName = dt.Rows[0]["RoleName"].ToString();
 
-                OpenDashboard(Session.RoleName);
+                OpenDashboard(roleName, userId, fullName);
             }
             catch (Exception ex)
             {
@@ -66,7 +61,7 @@ WHERE u.Username = @Username
             }
         }
 
-        private void OpenDashboard(string roleName)
+        private void OpenDashboard(string roleName, int userId, string fullName)
         {
             Form dashboard;
 
@@ -75,7 +70,7 @@ WHERE u.Username = @Username
             else if (roleName == "Pharmacist")
                 dashboard = new PharmacistDashboard();
             else if (roleName == "Cashier")
-                dashboard = new CashierDashboard();
+                dashboard = new CashierDashboardForm(userId, fullName);
             else
             {
                 MessageBox.Show("Unknown role: " + roleName);

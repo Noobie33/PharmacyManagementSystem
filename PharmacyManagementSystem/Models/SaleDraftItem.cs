@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PharmacyManagementSystem.Models
+﻿namespace PharmacyManagementSystem.Models
 {
-    internal class SaleDraftItem
+    public class SaleDraftItem
     {
+        public int BatchId { get; set; }
+        public string MedicineName { get; set; }
+        public string BatchNo { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int Quantity { get; set; }
+
+        public decimal LineTotal
+        {
+            get { return UnitPrice * Quantity; }
+        }
     }
 }
