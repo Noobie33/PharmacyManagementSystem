@@ -14,15 +14,18 @@ namespace PharmacyManagementSystem
 {
     public partial class CategoryForm : Form
     {
-        SqlConnection con = new SqlConnection(
-    ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString);
         public CategoryForm()
         {
             InitializeComponent();
         }
-        private void CategoryForm_Load(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            //LoadCategories();
+           
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCategoryName.Clear();
         }
     }
 }
