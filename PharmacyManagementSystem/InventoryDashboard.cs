@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class PharmacistDashboard : Form
+    public partial class InventoryDashboard : Form
     {
-        public PharmacistDashboard()
+        public InventoryDashboard()
         {
             InitializeComponent();
-        }
-
-        private void clkbtn_Click(object sender, EventArgs e)
-        {
-            InventoryDashboard idb = new InventoryDashboard();
-            idb.Show();
-            this.Hide();
         }
     }
 }

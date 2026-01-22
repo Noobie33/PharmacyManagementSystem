@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.clkbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -42,23 +42,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Pharmacist Dashboard";
             // 
-            // button1
+            // clkbtn
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(379, 242);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(307, 47);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Inventory Management";
-            this.button1.UseVisualStyleBackColor = false;
+            this.clkbtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.clkbtn.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clkbtn.Location = new System.Drawing.Point(446, 230);
+            this.clkbtn.Name = "clkbtn";
+            this.clkbtn.Size = new System.Drawing.Size(190, 54);
+            this.clkbtn.TabIndex = 2;
+            this.clkbtn.Text = "👆click here";
+            this.clkbtn.UseVisualStyleBackColor = false;
+            this.clkbtn.Click += new System.EventHandler(this.clkbtn_Click);
             // 
             // PharmacistDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.clkbtn);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PharmacistDashboard";
@@ -71,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button clkbtn;
     }
 }
