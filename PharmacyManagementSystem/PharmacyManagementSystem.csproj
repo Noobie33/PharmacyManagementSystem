@@ -60,12 +60,30 @@
       <DependentUpon>CashierDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Data\Db.cs" />
+    <Compile Include="Data\InventoryRepository.cs" />
+    <Compile Include="Data\ReportsRepository.cs" />
+    <Compile Include="Data\SalesRepository.cs" />
+    <Compile Include="Forms\CashierDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CashierDashboardForm.Designer.cs">
+      <DependentUpon>CashierDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PosForm.Designer.cs">
+      <DependentUpon>PosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BatchSearchResult.cs" />
+    <Compile Include="Models\SaleDraftItem.cs" />
     <Compile Include="PharmacistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,5 +130,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
