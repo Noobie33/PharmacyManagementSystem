@@ -53,6 +53,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUserManagement.Designer.cs">
+      <DependentUpon>AdminUserManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUserManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Session.cs" />
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUserManagement.resx">
+      <DependentUpon>AdminUserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUserManagementForm.resx">
       <DependentUpon>AdminUserManagementForm.cs</DependentUpon>

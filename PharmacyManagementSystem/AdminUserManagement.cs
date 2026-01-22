@@ -10,21 +10,13 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class AdminDashboard : Form
+    public partial class AdminUserManagement : UserControl
     {
-        public AdminDashboard()
+        public AdminUserManagement()
         {
             InitializeComponent();
         }
 
-        private void btnManageUsers_Click(object sender, EventArgs e)
-        {
-            
-            AdminUserManagementForm adminUMF = new AdminUserManagementForm();
-            adminUMF.Show();  
-            
-        }
-
-        
+      
     }
 }

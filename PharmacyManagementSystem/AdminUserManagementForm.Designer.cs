@@ -46,6 +46,7 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvUsers.Location = new System.Drawing.Point(0, 0);
