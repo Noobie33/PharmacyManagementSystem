@@ -20,7 +20,7 @@ namespace PharmacyManagementSystem
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             
-            AdminUserManagementForm adminUMF = new AdminUserManagementForm();
+            AdminUserManagement adminUMF = new AdminUserManagement();
             adminUMF.Show();  
             
         }
