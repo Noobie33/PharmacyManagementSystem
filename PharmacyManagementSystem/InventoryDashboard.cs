@@ -44,5 +44,9 @@ namespace PharmacyManagementSystem
             ba.Show();
             this.Hide();
         }
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
