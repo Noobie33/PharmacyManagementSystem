@@ -37,5 +37,12 @@ namespace PharmacyManagementSystem
             ca.Show(); 
             this.Hide();
         }
+
+        private void btnBatchStockForm_Click(object sender, EventArgs e)
+        {
+            BatchStockForm ba = new BatchStockForm();
+            ba.Show();
+            this.Hide();
+        }
     }
 }

@@ -53,6 +53,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="BatchStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BatchStockForm.Designer.cs">
+      <DependentUpon>BatchStockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BatchStockForm.resx">
+      <DependentUpon>BatchStockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CashierDashboard.resx">
       <DependentUpon>CashierDashboard.cs</DependentUpon>
