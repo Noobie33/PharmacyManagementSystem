@@ -14,7 +14,9 @@ namespace PharmacyManagementSystem
 {
     public partial class CategoryForm : Form
     {
-        string conString = "Data Source=THINKPAD-26B7VP\\SQLEXPRESS05;Initial Catalog=pharmacyDB;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        string conString =
+    ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString;
+
 
 
         public CategoryForm()

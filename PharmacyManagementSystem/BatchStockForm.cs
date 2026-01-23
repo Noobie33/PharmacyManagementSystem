@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -13,7 +14,9 @@ namespace PharmacyManagementSystem
 {
     public partial class BatchStockForm : Form
     {
-        string conString = "Data Source=THINKPAD-26B7VP\\SQLEXPRESS05;Initial Catalog=pharmacyDB;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        string conString =
+    ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString;
+
         public BatchStockForm()
         {
             InitializeComponent();
