@@ -128,6 +128,7 @@
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
@@ -137,6 +138,7 @@
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add Medicine";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // button3
             // 
@@ -164,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 568);
+            this.ClientSize = new System.Drawing.Size(788, 575);
             this.Controls.Add(this.dgvMedicines);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnAdd);
@@ -180,6 +182,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MedicineForm";
             this.Text = "MedicineForm";
+            this.Load += new System.EventHandler(this.MedicineForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicines)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
