@@ -23,5 +23,12 @@ namespace PharmacyManagementSystem
             ca.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MedicineForm ma=new MedicineForm();
+            ma.Show();
+            this.Hide();
+        }
     }
 }

@@ -33,7 +33,7 @@
             this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.dgvCategories = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
             this.SuspendLayout();
@@ -83,14 +83,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button3
+            // btnBack
             // 
-            this.button3.Location = new System.Drawing.Point(100, 388);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 34);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBack.Location = new System.Drawing.Point(100, 388);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(140, 34);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "<<back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dgvCategories
             // 
@@ -110,7 +111,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvCategories);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtCategoryName);
@@ -132,7 +133,7 @@
         private System.Windows.Forms.TextBox txtCategoryName;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView dgvCategories;
     }
 }

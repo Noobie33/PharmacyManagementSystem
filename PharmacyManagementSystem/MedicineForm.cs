@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem
 {
-    public partial class AdminDashboard : Form
+    public partial class MedicineForm : Form
     {
-        public AdminDashboard()
+        public MedicineForm()
         {
             InitializeComponent();
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

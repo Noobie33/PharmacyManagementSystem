@@ -53,12 +53,6 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUserManagementForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminUserManagementForm.Designer.cs">
-      <DependentUpon>AdminUserManagementForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +78,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineForm.Designer.cs">
+      <DependentUpon>MedicineForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PharmacistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,9 +96,6 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUserManagementForm.resx">
-      <DependentUpon>AdminUserManagementForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CashierDashboard.resx">
       <DependentUpon>CashierDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineForm.resx">
+      <DependentUpon>MedicineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PharmacistDashboard.resx">
       <DependentUpon>PharmacistDashboard.cs</DependentUpon>
