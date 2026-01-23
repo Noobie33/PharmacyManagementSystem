@@ -49,7 +49,7 @@
             this.btnManageUsers.TabIndex = 2;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = true;
-            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
+           
             // 
             // AdminDashboard
             // 
