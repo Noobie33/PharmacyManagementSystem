@@ -30,5 +30,12 @@ namespace PharmacyManagementSystem
             ma.Show();
             this.Hide();
         }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            SupplierForm ca = new SupplierForm();
+            ca.Show(); 
+            this.Hide();
+        }
     }
 }
