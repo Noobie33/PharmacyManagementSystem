@@ -48,7 +48,6 @@ WHERE u.Username = @Username
                     return;
                 }
 
-                // Option A: local variables
                 int userId = Convert.ToInt32(dt.Rows[0]["UserId"]);
                 string fullName = dt.Rows[0]["FullName"].ToString();
                 string roleName = dt.Rows[0]["RoleName"].ToString();

@@ -76,6 +76,18 @@
     <Compile Include="Forms\PosForm.Designer.cs">
       <DependentUpon>PosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SaleDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SaleDetailsForm.Designer.cs">
+      <DependentUpon>SaleDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TodaySalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TodaySalesForm.Designer.cs">
+      <DependentUpon>TodaySalesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PosForm.resx">
       <DependentUpon>PosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SaleDetailsForm.resx">
+      <DependentUpon>SaleDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TodaySalesForm.resx">
+      <DependentUpon>TodaySalesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

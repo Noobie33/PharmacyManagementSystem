@@ -16,6 +16,7 @@ namespace PharmacyManagementSystem.Forms
         private readonly SalesRepository _salesRepo = new SalesRepository();
 
         private readonly List<SaleDraftItem> _cart = new List<SaleDraftItem>();
+        private int _lastSaleId = 0;
 
         public PosForm(int userId, string FullName)
         {
@@ -32,11 +33,10 @@ namespace PharmacyManagementSystem.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Search clicked");
+            
             var q = txtSearch.Text.Trim();
             var list = _invRepo.SearchAvailableBatches(q);
 
-            MessageBox.Show("Rows: " + (list == null ? "null" : list.Count.ToString()));
             dgvBatches.AutoGenerateColumns = false;
             dgvBatches.DataSource = list;
         }
@@ -49,7 +49,7 @@ namespace PharmacyManagementSystem.Forms
 
             var row = dgvBatches.Rows[e.RowIndex];
 
-            int batchId = Convert.ToInt32(row.Cells["colBatchId"].Value);
+            int batchId = Convert.ToInt32(row.Cells["BatchId"].Value);
             string medName = row.Cells["MedicineName"].Value.ToString();
             string batchNo = row.Cells["BatchNo"].Value.ToString();
             decimal price = Convert.ToDecimal(row.Cells["SalePrice"].Value);
@@ -81,16 +81,8 @@ namespace PharmacyManagementSystem.Forms
             dgvCart.AutoGenerateColumns = false;
             dgvCart.DataSource = null;
 
-           
-            dgvCart.DataSource = _cart.Select(x => new
-            {
-                BatchId = x.BatchId,
-                MedicineName = x.MedicineName,
-                BatchNo = x.BatchNo,
-                UnitPrice = x.UnitPrice,
-                Quantity = x.Quantity,
-                LineTotal = x.LineTotal
-            }).ToList();
+            
+            dgvCart.DataSource = _cart;
 
             RecalcTotals();
         }
@@ -99,9 +91,15 @@ namespace PharmacyManagementSystem.Forms
         private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
+         
             if (dgvCart.Columns[e.ColumnIndex].Name != "colRemove") return;
 
-            int batchId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colBatchId"].Value);
+           
+            dynamic itemRow = dgvCart.Rows[e.RowIndex].DataBoundItem;
+
+            int batchId = (int)itemRow.BatchId;
+
             _cart.RemoveAll(x => x.BatchId == batchId);
 
             BindCart();
@@ -111,18 +109,30 @@ namespace PharmacyManagementSystem.Forms
         private void dgvCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            if (dgvCart.Columns[e.ColumnIndex].Name != "colQty") return;
 
-            int batchId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colBatchId"].Value);
+            
+            if (dgvCart.Columns[e.ColumnIndex].DataPropertyName != "Quantity") return;
 
-            int qty = 1;
-            int.TryParse(Convert.ToString(dgvCart.Rows[e.RowIndex].Cells["colQty"].Value), out qty);
-            if (qty <= 0) qty = 1;
+          
+            var bound = dgvCart.Rows[e.RowIndex].DataBoundItem;
 
-            var item = _cart.First(x => x.BatchId == batchId);
+            
+            dynamic itemRow = bound;
+
+            int batchId = (int)itemRow.BatchId;
+
+            int qty;
+            if (!int.TryParse(Convert.ToString(itemRow.Quantity), out qty) || qty <= 0)
+                qty = 1;
+
+          
+            var item = _cart.FirstOrDefault(x => x.BatchId == batchId);
+            if (item == null) return;
+
             item.Quantity = qty;
 
-            BindCart();
+            dgvCart.Refresh();
+            RecalcTotals();
         }
 
     
@@ -153,7 +163,16 @@ namespace PharmacyManagementSystem.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             _cart.Clear();
-            BindCart();
+
+            
+            txtDiscount.Text = "0";
+            txtVat.Text = "0";
+
+            
+            _lastSaleId = 0;
+
+            BindCart();      
+            RecalcTotals();  
         }
 
       
@@ -173,16 +192,53 @@ namespace PharmacyManagementSystem.Forms
                 decimal net = decimal.Parse(txtNetTotal.Text);
 
                 int saleId = _salesRepo.CreateSale(_userId, sub, dis, vat, net, _cart);
+                _lastSaleId=saleId;
 
                 MessageBox.Show($"Sale completed.\nInvoice No: {saleId}");
 
                 _cart.Clear();
+                txtDiscount.Text = "0";
+                txtVat.Text = "0";
+
                 BindCart();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Sale Failed");
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+            if (_lastSaleId <= 0)
+            {
+                MessageBox.Show("Please complete a sale first, then print the invoice.");
+                return;
+            }
+
+            using (var f = new SaleDetailsForm(_lastSaleId))
+            {
+                f.ShowDialog();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var q = txtSearch.Text.Trim();
+                var list = _invRepo.SearchAvailableBatches(q);
+
+                dgvBatches.AutoGenerateColumns = false;
+                dgvBatches.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search failed.\n" + ex.Message);
+            }
+
         }
     }
 }

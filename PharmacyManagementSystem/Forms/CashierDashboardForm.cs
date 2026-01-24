@@ -8,7 +8,6 @@ namespace PharmacyManagementSystem.Forms
         private readonly int _userId;
         private readonly string _fullName;
 
-       
         public CashierDashboardForm(int userId, string fullName)
         {
             InitializeComponent();
@@ -16,7 +15,6 @@ namespace PharmacyManagementSystem.Forms
             _userId = userId;
             _fullName = fullName;
 
-           
             lblWelcome.Text = $"Welcome, {_fullName}";
         }
 
@@ -30,15 +28,14 @@ namespace PharmacyManagementSystem.Forms
 
         private void btnTodaySales_Click(object sender, EventArgs e)
         {
-           
-
-            MessageBox.Show("Today Sales Report will open from here.");
+            using (var f = new TodaySalesForm())
+            {
+                f.ShowDialog();
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-           
-
             Application.Exit();
         }
     }

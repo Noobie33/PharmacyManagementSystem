@@ -28,16 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.dgvBatches = new System.Windows.Forms.DataGridView();
-            this.BatchId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -64,6 +57,13 @@
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.lblCashier = new System.Windows.Forms.Label();
+            this.BatchId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBatches)).BeginInit();
             this.pnlCart.SuspendLayout();
@@ -109,69 +109,6 @@
             this.dgvBatches.TabIndex = 3;
             this.dgvBatches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBatches_CellContentClick);
             // 
-            // BatchId
-            // 
-            this.BatchId.DataPropertyName = "BatchId";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OldLace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BatchId.DefaultCellStyle = dataGridViewCellStyle1;
-            this.BatchId.HeaderText = "BatchId";
-            this.BatchId.MinimumWidth = 6;
-            this.BatchId.Name = "BatchId";
-            this.BatchId.ReadOnly = true;
-            this.BatchId.Visible = false;
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.DataPropertyName = "MedicineName";
-            this.MedicineName.HeaderText = "Medicine";
-            this.MedicineName.MinimumWidth = 6;
-            this.MedicineName.Name = "MedicineName";
-            this.MedicineName.ReadOnly = true;
-            // 
-            // BatchNo
-            // 
-            this.BatchNo.DataPropertyName = "BatchNo";
-            this.BatchNo.HeaderText = "Batch No";
-            this.BatchNo.MinimumWidth = 6;
-            this.BatchNo.Name = "BatchNo";
-            this.BatchNo.ReadOnly = true;
-            // 
-            // ExpiryDate
-            // 
-            this.ExpiryDate.DataPropertyName = "ExpiryDate";
-            this.ExpiryDate.HeaderText = "Expiry";
-            this.ExpiryDate.MinimumWidth = 6;
-            this.ExpiryDate.Name = "ExpiryDate";
-            this.ExpiryDate.ReadOnly = true;
-            // 
-            // StockQty
-            // 
-            this.StockQty.DataPropertyName = "StockQty";
-            this.StockQty.HeaderText = "Stock";
-            this.StockQty.MinimumWidth = 6;
-            this.StockQty.Name = "StockQty";
-            this.StockQty.ReadOnly = true;
-            // 
-            // SalePrice
-            // 
-            this.SalePrice.DataPropertyName = "SalePrice";
-            this.SalePrice.HeaderText = "Price";
-            this.SalePrice.MinimumWidth = 6;
-            this.SalePrice.Name = "SalePrice";
-            this.SalePrice.ReadOnly = true;
-            // 
-            // colAdd
-            // 
-            this.colAdd.HeaderText = "";
-            this.colAdd.MinimumWidth = 6;
-            this.colAdd.Name = "colAdd";
-            this.colAdd.ReadOnly = true;
-            this.colAdd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colAdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colAdd.Text = "Add";
-            this.colAdd.UseColumnTextForButtonValue = true;
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(315, 62);
@@ -197,6 +134,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(250, 22);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // pnlCart
             // 
@@ -311,9 +249,9 @@
             this.pnlTotals.Controls.Add(this.txtSubTotal);
             this.pnlTotals.Controls.Add(this.lblSubTotal);
             this.pnlTotals.Controls.Add(this.lblCashier);
-            this.pnlTotals.Location = new System.Drawing.Point(504, 364);
+            this.pnlTotals.Location = new System.Drawing.Point(504, 379);
             this.pnlTotals.Name = "pnlTotals";
-            this.pnlTotals.Size = new System.Drawing.Size(825, 377);
+            this.pnlTotals.Size = new System.Drawing.Size(825, 362);
             this.pnlTotals.TabIndex = 2;
             // 
             // btnPrint
@@ -324,6 +262,7 @@
             this.btnPrint.TabIndex = 11;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClear
             // 
@@ -422,6 +361,69 @@
             this.lblCashier.TabIndex = 0;
             this.lblCashier.Text = "Cashier :";
             // 
+            // BatchId
+            // 
+            this.BatchId.DataPropertyName = "BatchId";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.OldLace;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BatchId.DefaultCellStyle = dataGridViewCellStyle5;
+            this.BatchId.HeaderText = "BatchId";
+            this.BatchId.MinimumWidth = 6;
+            this.BatchId.Name = "BatchId";
+            this.BatchId.ReadOnly = true;
+            this.BatchId.Visible = false;
+            // 
+            // MedicineName
+            // 
+            this.MedicineName.DataPropertyName = "MedicineName";
+            this.MedicineName.HeaderText = "Medicine";
+            this.MedicineName.MinimumWidth = 6;
+            this.MedicineName.Name = "MedicineName";
+            this.MedicineName.ReadOnly = true;
+            // 
+            // BatchNo
+            // 
+            this.BatchNo.DataPropertyName = "BatchNo";
+            this.BatchNo.HeaderText = "Batch No";
+            this.BatchNo.MinimumWidth = 6;
+            this.BatchNo.Name = "BatchNo";
+            this.BatchNo.ReadOnly = true;
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.DataPropertyName = "ExpiryDate";
+            this.ExpiryDate.HeaderText = "Expiry";
+            this.ExpiryDate.MinimumWidth = 6;
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.ReadOnly = true;
+            // 
+            // StockQty
+            // 
+            this.StockQty.DataPropertyName = "StockQty";
+            this.StockQty.HeaderText = "Stock";
+            this.StockQty.MinimumWidth = 6;
+            this.StockQty.Name = "StockQty";
+            this.StockQty.ReadOnly = true;
+            // 
+            // SalePrice
+            // 
+            this.SalePrice.DataPropertyName = "SalePrice";
+            this.SalePrice.HeaderText = "Price";
+            this.SalePrice.MinimumWidth = 6;
+            this.SalePrice.Name = "SalePrice";
+            this.SalePrice.ReadOnly = true;
+            // 
+            // colAdd
+            // 
+            this.colAdd.HeaderText = "";
+            this.colAdd.MinimumWidth = 6;
+            this.colAdd.Name = "colAdd";
+            this.colAdd.ReadOnly = true;
+            this.colAdd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colAdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colAdd.Text = "Add";
+            this.colAdd.UseColumnTextForButtonValue = true;
+            // 
             // PosForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -467,13 +469,6 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnCompleteSale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BatchId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BatchNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StockQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
-        private System.Windows.Forms.DataGridViewButtonColumn colAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMedicine;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBatchId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBatchNo;
@@ -481,5 +476,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLineTotal;
         private System.Windows.Forms.DataGridViewButtonColumn colRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BatchId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BatchNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
+        private System.Windows.Forms.DataGridViewButtonColumn colAdd;
     }
 }
