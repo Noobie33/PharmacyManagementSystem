@@ -51,158 +51,197 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(206, 28);
+            this.label1.BackColor = System.Drawing.Color.Bisque;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(210, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(332, 32);
+            this.label1.Size = new System.Drawing.Size(504, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Medicine Batch And Stock";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 91);
+            this.label2.BackColor = System.Drawing.Color.Bisque;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(92, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.Size = new System.Drawing.Size(133, 32);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Medicine";
+            this.label2.Text = "Medicine:";
             // 
             // cmbMedicine
             // 
+            this.cmbMedicine.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.cmbMedicine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMedicine.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedicine.FormattingEnabled = true;
-            this.cmbMedicine.Location = new System.Drawing.Point(238, 88);
+            this.cmbMedicine.Location = new System.Drawing.Point(323, 88);
             this.cmbMedicine.Name = "cmbMedicine";
-            this.cmbMedicine.Size = new System.Drawing.Size(243, 28);
+            this.cmbMedicine.Size = new System.Drawing.Size(323, 41);
             this.cmbMedicine.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 143);
+            this.label3.BackColor = System.Drawing.Color.Bisque;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(92, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.Size = new System.Drawing.Size(135, 32);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Batch No";
+            this.label3.Text = "Batch No:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 235);
+            this.label4.BackColor = System.Drawing.Color.Bisque;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(92, 294);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 20);
+            this.label4.Size = new System.Drawing.Size(202, 32);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Purchase Price";
+            this.label4.Text = "Purchase Price:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 280);
+            this.label5.BackColor = System.Drawing.Color.Bisque;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(103, 365);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 20);
+            this.label5.Size = new System.Drawing.Size(142, 32);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Sale Price";
+            this.label5.Text = "Sale Price:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(83, 186);
+            this.label6.BackColor = System.Drawing.Color.Bisque;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(92, 232);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 20);
+            this.label6.Size = new System.Drawing.Size(168, 32);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Expiry Date";
+            this.label6.Text = "Expiry Date:";
             // 
             // txtBatchNo
             // 
-            this.txtBatchNo.Location = new System.Drawing.Point(238, 137);
+            this.txtBatchNo.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtBatchNo.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBatchNo.Location = new System.Drawing.Point(323, 157);
             this.txtBatchNo.Name = "txtBatchNo";
-            this.txtBatchNo.Size = new System.Drawing.Size(243, 26);
+            this.txtBatchNo.Size = new System.Drawing.Size(323, 40);
             this.txtBatchNo.TabIndex = 7;
             // 
             // dtpExpiry
             // 
-            this.dtpExpiry.Location = new System.Drawing.Point(238, 181);
+            this.dtpExpiry.CalendarMonthBackground = System.Drawing.Color.LightGoldenrodYellow;
+            this.dtpExpiry.CalendarTitleBackColor = System.Drawing.Color.PaleGreen;
+            this.dtpExpiry.CalendarTitleForeColor = System.Drawing.Color.PapayaWhip;
+            this.dtpExpiry.Checked = false;
+            this.dtpExpiry.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpExpiry.Location = new System.Drawing.Point(323, 224);
             this.dtpExpiry.Name = "dtpExpiry";
-            this.dtpExpiry.Size = new System.Drawing.Size(243, 26);
+            this.dtpExpiry.Size = new System.Drawing.Size(323, 40);
             this.dtpExpiry.TabIndex = 8;
             // 
             // txtPurchasePrice
             // 
-            this.txtPurchasePrice.Location = new System.Drawing.Point(238, 232);
+            this.txtPurchasePrice.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtPurchasePrice.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurchasePrice.Location = new System.Drawing.Point(323, 291);
             this.txtPurchasePrice.Name = "txtPurchasePrice";
-            this.txtPurchasePrice.Size = new System.Drawing.Size(243, 26);
+            this.txtPurchasePrice.Size = new System.Drawing.Size(323, 40);
             this.txtPurchasePrice.TabIndex = 9;
             // 
             // txtSalePrice
             // 
-            this.txtSalePrice.Location = new System.Drawing.Point(238, 279);
+            this.txtSalePrice.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtSalePrice.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalePrice.Location = new System.Drawing.Point(323, 362);
             this.txtSalePrice.Name = "txtSalePrice";
-            this.txtSalePrice.Size = new System.Drawing.Size(243, 26);
+            this.txtSalePrice.Size = new System.Drawing.Size(323, 40);
             this.txtSalePrice.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(83, 335);
+            this.label7.BackColor = System.Drawing.Color.Bisque;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(103, 435);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.Size = new System.Drawing.Size(131, 32);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Quantity";
+            this.label7.Text = "Quantity:";
             // 
             // txtStockQty
             // 
-            this.txtStockQty.Location = new System.Drawing.Point(238, 332);
+            this.txtStockQty.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtStockQty.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockQty.Location = new System.Drawing.Point(323, 432);
             this.txtStockQty.Name = "txtStockQty";
-            this.txtStockQty.Size = new System.Drawing.Size(243, 26);
+            this.txtStockQty.Size = new System.Drawing.Size(323, 40);
             this.txtStockQty.TabIndex = 12;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(552, 137);
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(701, 188);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(203, 56);
+            this.btnAdd.Size = new System.Drawing.Size(225, 76);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add Batch";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(552, 215);
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(701, 295);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(203, 60);
+            this.btnClear.Size = new System.Drawing.Size(225, 79);
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(552, 298);
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(701, 396);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(203, 57);
+            this.btnBack.Size = new System.Drawing.Size(225, 76);
             this.btnBack.TabIndex = 15;
             this.btnBack.Text = "<< Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dgvBatches
             // 
             this.dgvBatches.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBatches.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvBatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBatches.Location = new System.Drawing.Point(12, 364);
+            this.dgvBatches.Location = new System.Drawing.Point(12, 494);
             this.dgvBatches.Name = "dgvBatches";
             this.dgvBatches.ReadOnly = true;
             this.dgvBatches.RowHeadersWidth = 62;
             this.dgvBatches.RowTemplate.Height = 28;
-            this.dgvBatches.Size = new System.Drawing.Size(792, 163);
+            this.dgvBatches.Size = new System.Drawing.Size(982, 228);
             this.dgvBatches.TabIndex = 16;
             // 
             // BatchStockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 539);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1006, 734);
             this.Controls.Add(this.dgvBatches);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
