@@ -67,9 +67,15 @@ namespace PharmacyManagementSystem
 
         private void btnGenerateNearExpiryReport_Click(object sender, EventArgs e)
         {
-            string sql = @"SELECT MedicineName, ExpiryDate
-                   FROM dbo.MedicineBatches
-                   WHERE ExpiryDate <= GETDATE() + 30";
+            string sql = @"SELECT 
+    m.MedicineName,
+    mb.BatchNo,
+    mb.ExpiryDate
+FROM dbo.MedicineBatches mb
+INNER JOIN dbo.Medicines m 
+    ON m.MedicineId = mb.MedicineId
+WHERE mb.ExpiryDate <= DATEADD(DAY, 30, GETDATE());
+";
 
             SqlCommand cmd = db.GetCommand(sql);
 
