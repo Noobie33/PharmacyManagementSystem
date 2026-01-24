@@ -48,7 +48,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(267, 55);
             this.button1.TabIndex = 0;
-            this.button1.Text = "CategoryForm";
+            this.button1.Text = "Category";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -61,7 +61,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(267, 55);
             this.button2.TabIndex = 1;
-            this.button2.Text = "MedicineForm";
+            this.button2.Text = "Medicine";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -74,7 +74,7 @@
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(267, 55);
             this.btnSupplier.TabIndex = 2;
-            this.btnSupplier.Text = "SupplierForm";
+            this.btnSupplier.Text = "Supplier";
             this.btnSupplier.UseVisualStyleBackColor = false;
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
@@ -87,7 +87,7 @@
             this.btnBatchStockForm.Name = "btnBatchStockForm";
             this.btnBatchStockForm.Size = new System.Drawing.Size(267, 55);
             this.btnBatchStockForm.TabIndex = 3;
-            this.btnBatchStockForm.Text = "BatchStockForm";
+            this.btnBatchStockForm.Text = "BatchStock";
             this.btnBatchStockForm.UseVisualStyleBackColor = false;
             this.btnBatchStockForm.Click += new System.EventHandler(this.btnBatchStockForm_Click);
             // 
