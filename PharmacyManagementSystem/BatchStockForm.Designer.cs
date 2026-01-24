@@ -194,7 +194,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(701, 188);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(225, 76);
+            this.btnAdd.Size = new System.Drawing.Size(225, 68);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add Batch";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -205,9 +205,9 @@
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(701, 295);
+            this.btnClear.Location = new System.Drawing.Point(701, 294);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(225, 79);
+            this.btnClear.Size = new System.Drawing.Size(225, 71);
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -218,9 +218,9 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(701, 396);
+            this.btnBack.Location = new System.Drawing.Point(701, 401);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(225, 76);
+            this.btnBack.Size = new System.Drawing.Size(225, 71);
             this.btnBack.TabIndex = 15;
             this.btnBack.Text = "<< Back";
             this.btnBack.UseVisualStyleBackColor = false;
