@@ -14,11 +14,7 @@ namespace PharmacyManagementSystem
 {
     public partial class CategoryForm : Form
     {
-        string conString =
-    ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString;
-
-
-
+        string conString = ConfigurationManager.ConnectionStrings["PharmacyDB"].ConnectionString;
         public CategoryForm()
         {
             InitializeComponent();
@@ -31,15 +27,11 @@ namespace PharmacyManagementSystem
         {
             SqlConnection con = new SqlConnection(conString);
             con.Open();
-
             SqlCommand cmd = new SqlCommand("SELECT CategoryId, CategoryName FROM Categories", con);
-
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-
             dgvCategories.DataSource = dt;
-
             con.Close();
         }
         private void btnAdd_Click(object sender, EventArgs e)
@@ -49,20 +41,13 @@ namespace PharmacyManagementSystem
                 MessageBox.Show("Category name required");
                 return;
             }
-
             SqlConnection con = new SqlConnection(conString);
             con.Open();
-
-            SqlCommand cmd = new SqlCommand(
-                "INSERT INTO Categories(CategoryName) VALUES(@name)", con);
-
+            SqlCommand cmd = new SqlCommand("INSERT INTO Categories(CategoryName) VALUES(@name)", con);
             cmd.Parameters.AddWithValue("@name", txtCategoryName.Text);
-
             cmd.ExecuteNonQuery();
             con.Close();
-
             MessageBox.Show("Category Inserted Successfully");
-
             txtCategoryName.Clear();
             LoadCategories();
         }
@@ -70,7 +55,6 @@ namespace PharmacyManagementSystem
         {
             txtCategoryName.Clear();
         }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             InventoryDashboard ib = new InventoryDashboard();

@@ -140,11 +140,14 @@
             this.dtpExpiry.CalendarTitleBackColor = System.Drawing.Color.PaleGreen;
             this.dtpExpiry.CalendarTitleForeColor = System.Drawing.Color.PapayaWhip;
             this.dtpExpiry.Checked = false;
+            this.dtpExpiry.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtpExpiry.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpExpiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpExpiry.Location = new System.Drawing.Point(323, 224);
             this.dtpExpiry.Name = "dtpExpiry";
             this.dtpExpiry.Size = new System.Drawing.Size(323, 40);
             this.dtpExpiry.TabIndex = 8;
+            this.dtpExpiry.ValueChanged += new System.EventHandler(this.dtpExpiry_ValueChanged);
             // 
             // txtPurchasePrice
             // 
@@ -260,6 +263,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BatchStockForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BatchStockForm";
             this.Load += new System.EventHandler(this.BatchStockForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBatches)).EndInit();
