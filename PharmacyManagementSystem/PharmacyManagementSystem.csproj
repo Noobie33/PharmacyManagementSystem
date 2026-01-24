@@ -53,22 +53,16 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="CashierDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CashierDashboard.Designer.cs">
-      <DependentUpon>CashierDashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Data\Db.cs" />
     <Compile Include="Data\InventoryRepository.cs" />
     <Compile Include="Data\ReportsRepository.cs" />
     <Compile Include="Data\SalesRepository.cs" />
-    <Compile Include="Forms\CashierDashboardForm.cs">
+    <Compile Include="Forms\CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CashierDashboardForm.Designer.cs">
-      <DependentUpon>CashierDashboardForm.cs</DependentUpon>
+    <Compile Include="Forms\CashierDashboard.Designer.cs">
+      <DependentUpon>CashierDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PosForm.cs">
       <SubType>Form</SubType>
@@ -108,11 +102,8 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CashierDashboard.resx">
+    <EmbeddedResource Include="Forms\CashierDashboard.resx">
       <DependentUpon>CashierDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CashierDashboardForm.resx">
-      <DependentUpon>CashierDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PosForm.resx">
       <DependentUpon>PosForm.cs</DependentUpon>

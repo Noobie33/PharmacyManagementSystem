@@ -3,12 +3,12 @@ using System.Windows.Forms;
 
 namespace PharmacyManagementSystem.Forms
 {
-    public partial class CashierDashboardForm : Form
+    public partial class CashierDashboard : Form
     {
         private readonly int _userId;
         private readonly string _fullName;
 
-        public CashierDashboardForm(int userId, string fullName)
+        public CashierDashboard(int userId, string fullName)
         {
             InitializeComponent();
 

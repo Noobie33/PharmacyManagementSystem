@@ -69,7 +69,7 @@ WHERE u.Username = @Username
             else if (roleName == "Pharmacist")
                 dashboard = new PharmacistDashboard();
             else if (roleName == "Cashier")
-                dashboard = new CashierDashboardForm(userId, fullName);
+                dashboard = new CashierDashboard(userId, fullName);
             else
             {
                 MessageBox.Show("Unknown role: " + roleName);

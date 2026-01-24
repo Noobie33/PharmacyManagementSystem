@@ -1,6 +1,6 @@
 ﻿namespace PharmacyManagementSystem.Forms
 {
-    partial class CashierDashboardForm
+    partial class CashierDashboard
     {
         /// <summary>
         /// Required designer variable.
