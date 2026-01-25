@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.btnManageUsers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -40,11 +41,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Admin Dashboard";
             // 
+            // btnManageUsers
+            // 
+            this.btnManageUsers.Location = new System.Drawing.Point(292, 187);
+            this.btnManageUsers.Name = "btnManageUsers";
+            this.btnManageUsers.Size = new System.Drawing.Size(117, 23);
+            this.btnManageUsers.TabIndex = 2;
+            this.btnManageUsers.Text = "Manage Users";
+            this.btnManageUsers.UseVisualStyleBackColor = true;
+            
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnManageUsers);
             this.Controls.Add(this.label1);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnManageUsers;
     }
 }
