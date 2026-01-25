@@ -2,7 +2,8 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using PharmacyManagementSystem.Forms;   
+using PharmacyManagementSystem.Forms;
+
 namespace PharmacyManagementSystem
 {
     public partial class Login : Form
@@ -36,9 +37,9 @@ WHERE u.Username = @Username
   AND u.IsActive = 1;
 ";
 
-                SqlCommand cmd = db.GetCommand(sql,
-                    new SqlParameter("@Username", username),
-                    new SqlParameter("@Password", password));
+                SqlCommand cmd = db.GetCommand(sql);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
 
                 DataTable dt = db.Execute(cmd);
 

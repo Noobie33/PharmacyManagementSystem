@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using PharmacyManagementSystem.Models;
@@ -29,10 +30,8 @@ WHERE m.IsActive = 1
 ORDER BY m.MedicineName;
 ";
 
-            SqlCommand cmd = db.GetCommand(
-                sql,
-                new SqlParameter("@q", q ?? "")
-            );
+            SqlCommand cmd = db.GetCommand(sql);
+            cmd.Parameters.AddWithValue("@q", q ?? "");
 
             DataTable dt = db.Execute(cmd);
 
@@ -40,12 +39,12 @@ ORDER BY m.MedicineName;
             {
                 list.Add(new BatchSearchResult
                 {
-                    BatchId = (int)row["BatchId"],
+                    BatchId = Convert.ToInt32(row["BatchId"]),
                     MedicineName = row["MedicineName"].ToString(),
                     BatchNo = row["BatchNo"].ToString(),
-                    ExpiryDate = (System.DateTime)row["ExpiryDate"],
-                    StockQty = (int)row["StockQty"],
-                    SalePrice = (decimal)row["SalePrice"]
+                    ExpiryDate = Convert.ToDateTime(row["ExpiryDate"]),
+                    StockQty = Convert.ToInt32(row["StockQty"]),
+                    SalePrice = Convert.ToDecimal(row["SalePrice"])
                 });
             }
 

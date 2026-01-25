@@ -27,14 +27,12 @@ OUTPUT INSERTED.SaleId
 VALUES (@SoldBy, @Sub, @Dis, @Vat, @Net);
 ";
 
-            SqlCommand saleCmd = db.GetCommand(
-                saleSql,
-                new SqlParameter("@SoldBy", cashierUserId),
-                new SqlParameter("@Sub", subTotal),
-                new SqlParameter("@Dis", discount),
-                new SqlParameter("@Vat", vat),
-                new SqlParameter("@Net", netTotal)
-            );
+            SqlCommand saleCmd = db.GetCommand(saleSql);
+            saleCmd.Parameters.AddWithValue("@SoldBy", cashierUserId);
+            saleCmd.Parameters.AddWithValue("@Sub", subTotal);
+            saleCmd.Parameters.AddWithValue("@Dis", discount);
+            saleCmd.Parameters.AddWithValue("@Vat", vat);
+            saleCmd.Parameters.AddWithValue("@Net", netTotal);
 
             DataTable saleDt = db.Execute(saleCmd);
             if (saleDt.Rows.Count == 0)
@@ -42,19 +40,17 @@ VALUES (@SoldBy, @Sub, @Dis, @Vat, @Net);
 
             int saleId = Convert.ToInt32(saleDt.Rows[0][0]);
 
-            
             foreach (var it in items)
             {
                 if (it.Quantity <= 0) throw new Exception("Invalid quantity in cart.");
 
-               
                 string checkSql = @"
 SELECT CurrentStockQty, ExpiryDate
 FROM MedicineBatches
 WHERE BatchId = @BatchId;
 ";
-                SqlCommand chkCmd = db.GetCommand(checkSql,
-                    new SqlParameter("@BatchId", it.BatchId));
+                SqlCommand chkCmd = db.GetCommand(checkSql);
+                chkCmd.Parameters.AddWithValue("@BatchId", it.BatchId);
 
                 DataTable chkDt = db.Execute(chkCmd);
                 if (chkDt.Rows.Count == 0)
@@ -69,7 +65,6 @@ WHERE BatchId = @BatchId;
                 if (it.Quantity > stock)
                     throw new Exception($"Out of stock: {it.BatchNo}. Available: {stock}");
 
-               
                 string itemSql = @"
 INSERT INTO SaleItems (SaleId, BatchId, Quantity, UnitPrice)
 VALUES (@SaleId, @BatchId, @Qty, @Price);
@@ -79,13 +74,13 @@ SET CurrentStockQty = CurrentStockQty - @Qty
 WHERE BatchId = @BatchId;
 ";
 
-                SqlCommand itemCmd = db.GetCommand(itemSql,
-                    new SqlParameter("@SaleId", saleId),
-                    new SqlParameter("@BatchId", it.BatchId),
-                    new SqlParameter("@Qty", it.Quantity),
-                    new SqlParameter("@Price", it.UnitPrice));
+                SqlCommand itemCmd = db.GetCommand(itemSql);
+                itemCmd.Parameters.AddWithValue("@SaleId", saleId);
+                itemCmd.Parameters.AddWithValue("@BatchId", it.BatchId);
+                itemCmd.Parameters.AddWithValue("@Qty", it.Quantity);
+                itemCmd.Parameters.AddWithValue("@Price", it.UnitPrice);
 
-                db.Execute(itemCmd);
+                db.ExecuteNonQuery(itemCmd);
             }
 
             return saleId;

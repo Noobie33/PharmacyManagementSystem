@@ -7,7 +7,6 @@ namespace PharmacyManagementSystem.Data
 {
     public class ReportsRepository
     {
-       
         public List<TodaySaleRow> GetSalesByDate(DateTime date)
         {
             var list = new List<TodaySaleRow>();
@@ -28,10 +27,8 @@ WHERE CAST(s.SaleDate AS date) = @d
 ORDER BY s.SaleDate DESC;
 ";
 
-            SqlCommand cmd = db.GetCommand(
-                sql,
-                new SqlParameter("@d", date.Date)
-            );
+            SqlCommand cmd = db.GetCommand(sql);
+            cmd.Parameters.AddWithValue("@d", date.Date);
 
             DataTable dt = db.Execute(cmd);
 
@@ -52,7 +49,6 @@ ORDER BY s.SaleDate DESC;
             return list;
         }
 
-       
         public List<SaleItemRow> GetSaleItems(int saleId)
         {
             var list = new List<SaleItemRow>();
@@ -72,10 +68,8 @@ WHERE si.SaleId = @saleId
 ORDER BY m.MedicineName;
 ";
 
-            SqlCommand cmd = db.GetCommand(
-                sql,
-                new SqlParameter("@saleId", saleId)
-            );
+            SqlCommand cmd = db.GetCommand(sql);
+            cmd.Parameters.AddWithValue("@saleId", saleId);
 
             DataTable dt = db.Execute(cmd);
 
@@ -95,7 +89,6 @@ ORDER BY m.MedicineName;
         }
     }
 
-    
     public class TodaySaleRow
     {
         public int SaleId { get; set; }
