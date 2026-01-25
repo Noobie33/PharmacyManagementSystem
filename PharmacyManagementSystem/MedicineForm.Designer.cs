@@ -144,9 +144,9 @@
             this.btnClear.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(764, 386);
+            this.btnClear.Location = new System.Drawing.Point(826, 376);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(164, 55);
+            this.btnClear.Size = new System.Drawing.Size(186, 55);
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -157,7 +157,7 @@
             this.btnAdd.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(178, 386);
+            this.btnAdd.Location = new System.Drawing.Point(198, 376);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(202, 55);
             this.btnAdd.TabIndex = 10;
@@ -170,7 +170,7 @@
             this.button3.BackColor = System.Drawing.Color.Lavender;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(12, 386);
+            this.button3.Location = new System.Drawing.Point(20, 376);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(160, 55);
             this.button3.TabIndex = 11;
@@ -197,7 +197,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.PaleGreen;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(386, 386);
+            this.btnUpdate.Location = new System.Drawing.Point(413, 376);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(187, 55);
             this.btnUpdate.TabIndex = 13;
@@ -210,9 +210,9 @@
             this.btnSearch.BackColor = System.Drawing.Color.Lavender;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(591, 386);
+            this.btnSearch.Location = new System.Drawing.Point(620, 376);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(167, 55);
+            this.btnSearch.Size = new System.Drawing.Size(192, 55);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
