@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PharmacyManagementSystem.Forms;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -60,7 +61,7 @@ namespace PharmacyManagementSystem
             else if (roleName == "Pharmacist")
                 dashboard = new PharmacistDashboard();
             else if (roleName == "Cashier")
-                dashboard = new CashierDashboard();
+                dashboard = new CashierDashboard(Session.UserId, Session.FullName);
             else
             {
                 MessageBox.Show("Unknown role.");

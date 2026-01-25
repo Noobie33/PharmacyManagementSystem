@@ -53,30 +53,34 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="BatchStockForm.cs">
+    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Data\Db.cs" />
+    <Compile Include="Data\InventoryRepository.cs" />
+    <Compile Include="Data\ReportsRepository.cs" />
+    <Compile Include="Data\SalesRepository.cs" />
+    <Compile Include="Forms\CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BatchStockForm.Designer.cs">
-      <DependentUpon>BatchStockForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CashierDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CashierDashboard.Designer.cs">
+    <Compile Include="Forms\CashierDashboard.Designer.cs">
       <DependentUpon>CashierDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="CategoryForm.cs">
+    <Compile Include="Forms\PosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CategoryForm.Designer.cs">
-      <DependentUpon>CategoryForm.cs</DependentUpon>
+    <Compile Include="Forms\PosForm.Designer.cs">
+      <DependentUpon>PosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="InventoryDashboard.cs">
+    <Compile Include="Forms\SaleDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InventoryDashboard.Designer.cs">
-      <DependentUpon>InventoryDashboard.cs</DependentUpon>
+    <Compile Include="Forms\SaleDetailsForm.Designer.cs">
+      <DependentUpon>SaleDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TodaySalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TodaySalesForm.Designer.cs">
+      <DependentUpon>TodaySalesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -84,12 +88,8 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MedicineForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MedicineForm.Designer.cs">
-      <DependentUpon>MedicineForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Models\BatchSearchResult.cs" />
+    <Compile Include="Models\SaleDraftItem.cs" />
     <Compile Include="PharmacistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,17 +108,17 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BatchStockForm.resx">
-      <DependentUpon>BatchStockForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CashierDashboard.resx">
+    <EmbeddedResource Include="Forms\CashierDashboard.resx">
       <DependentUpon>CashierDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CategoryForm.resx">
-      <DependentUpon>CategoryForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PosForm.resx">
+      <DependentUpon>PosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InventoryDashboard.resx">
-      <DependentUpon>InventoryDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SaleDetailsForm.resx">
+      <DependentUpon>SaleDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TodaySalesForm.resx">
+      <DependentUpon>TodaySalesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -157,5 +157,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
