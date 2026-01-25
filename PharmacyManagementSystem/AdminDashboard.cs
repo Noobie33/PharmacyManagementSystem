@@ -53,5 +53,15 @@ namespace PharmacyManagementSystem
                 loginForm.Show(); 
             }
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+
+            AdminReports adminUMF = new AdminReports();
+            adminUMF.Dock = DockStyle.Fill;
+
+            panelMain.Controls.Add(adminUMF);
+        }
     }
 }
