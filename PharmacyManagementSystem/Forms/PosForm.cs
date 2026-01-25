@@ -18,6 +18,8 @@ namespace PharmacyManagementSystem.Forms
         private readonly List<SaleDraftItem> _cart = new List<SaleDraftItem>();
         private int _lastSaleId = 0;
 
+        private const decimal VAT_PERCENT = 10m; 
+
         public PosForm(int userId, string FullName)
         {
             InitializeComponent();
@@ -25,15 +27,20 @@ namespace PharmacyManagementSystem.Forms
             _userId = userId;
             _fullName = FullName;
 
-            
             lblCashier.Text = $"Cashier: {_fullName}";
+
+           
+            txtDiscount.Text = "0";
+
+           
+            txtVat.Text = VAT_PERCENT.ToString("0");
+            txtVat.ReadOnly = true;
 
             RecalcTotals();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
             var q = txtSearch.Text.Trim();
             var list = _invRepo.SearchAvailableBatches(q);
 
@@ -41,7 +48,22 @@ namespace PharmacyManagementSystem.Forms
             dgvBatches.DataSource = list;
         }
 
-        
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var q = txtSearch.Text.Trim();
+                var list = _invRepo.SearchAvailableBatches(q);
+
+                dgvBatches.AutoGenerateColumns = false;
+                dgvBatches.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search failed.\n" + ex.Message);
+            }
+        }
+
         private void dgvBatches_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -50,8 +72,8 @@ namespace PharmacyManagementSystem.Forms
             var row = dgvBatches.Rows[e.RowIndex];
 
             int batchId = Convert.ToInt32(row.Cells["BatchId"].Value);
-            string medName = row.Cells["MedicineName"].Value.ToString();
-            string batchNo = row.Cells["BatchNo"].Value.ToString();
+            string medName = Convert.ToString(row.Cells["MedicineName"].Value);
+            string batchNo = Convert.ToString(row.Cells["BatchNo"].Value);
             decimal price = Convert.ToDecimal(row.Cells["SalePrice"].Value);
 
             AddToCart(batchId, medName, batchNo, price);
@@ -80,44 +102,31 @@ namespace PharmacyManagementSystem.Forms
         {
             dgvCart.AutoGenerateColumns = false;
             dgvCart.DataSource = null;
-
-            
             dgvCart.DataSource = _cart;
 
             RecalcTotals();
         }
 
-       
         private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
-         
             if (dgvCart.Columns[e.ColumnIndex].Name != "colRemove") return;
 
-           
             dynamic itemRow = dgvCart.Rows[e.RowIndex].DataBoundItem;
-
             int batchId = (int)itemRow.BatchId;
 
             _cart.RemoveAll(x => x.BatchId == batchId);
-
             BindCart();
         }
 
-        
         private void dgvCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            
+           
             if (dgvCart.Columns[e.ColumnIndex].DataPropertyName != "Quantity") return;
 
-          
-            var bound = dgvCart.Rows[e.RowIndex].DataBoundItem;
-
-            
-            dynamic itemRow = bound;
+            dynamic itemRow = dgvCart.Rows[e.RowIndex].DataBoundItem;
 
             int batchId = (int)itemRow.BatchId;
 
@@ -125,7 +134,6 @@ namespace PharmacyManagementSystem.Forms
             if (!int.TryParse(Convert.ToString(itemRow.Quantity), out qty) || qty <= 0)
                 qty = 1;
 
-          
             var item = _cart.FirstOrDefault(x => x.BatchId == batchId);
             if (item == null) return;
 
@@ -135,47 +143,61 @@ namespace PharmacyManagementSystem.Forms
             RecalcTotals();
         }
 
-    
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
+            if (txtDiscount.Focused && string.IsNullOrWhiteSpace(txtDiscount.Text))
+                return;
+
             RecalcTotals();
         }
 
-        private void txtVat_TextChanged(object sender, EventArgs e)
+        
+        private decimal GetDiscountPercent()
         {
-            RecalcTotals();
+            decimal p = 0m;
+            decimal.TryParse(txtDiscount.Text, out p);
+            if (p < 0) p = 0;
+            if (p > 100) p = 100;
+            return p;
+        }
+
+        
+        private void ComputeTotals(out decimal subTotal, out decimal discountAmount, out decimal vatAmount, out decimal netTotal)
+        {
+            subTotal = _cart.Sum(x => x.LineTotal);
+
+            decimal discountPercent = GetDiscountPercent();
+            decimal afterDiscount = subTotal - (subTotal * (discountPercent / 100m));
+            discountAmount = subTotal - afterDiscount;
+
+            vatAmount = afterDiscount * (VAT_PERCENT / 100m);
+            netTotal = afterDiscount + vatAmount;
         }
 
         private void RecalcTotals()
         {
-            decimal sub = _cart.Sum(x => x.LineTotal);
-
-            decimal.TryParse(txtDiscount.Text, out var dis);
-            decimal.TryParse(txtVat.Text, out var vat);
-
-            decimal net = sub - dis + vat;
+            ComputeTotals(out var sub, out var disAmt, out var vatAmt, out var net);
 
             txtSubTotal.Text = sub.ToString("0.00");
             txtNetTotal.Text = net.ToString("0.00");
+
+           
+            if (txtVat.Text != VAT_PERCENT.ToString("0"))
+                txtVat.Text = VAT_PERCENT.ToString("0");
         }
 
-        
         private void btnClear_Click(object sender, EventArgs e)
         {
             _cart.Clear();
 
-            
             txtDiscount.Text = "0";
-            txtVat.Text = "0";
+            txtVat.Text = VAT_PERCENT.ToString("0"); 
 
-            
             _lastSaleId = 0;
 
-            BindCart();      
-            RecalcTotals();  
+            BindCart();
         }
 
-      
         private void btnCompleteSale_Click(object sender, EventArgs e)
         {
             if (_cart.Count == 0)
@@ -186,19 +208,18 @@ namespace PharmacyManagementSystem.Forms
 
             try
             {
-                decimal sub = decimal.Parse(txtSubTotal.Text);
-                decimal.TryParse(txtDiscount.Text, out var dis);
-                decimal.TryParse(txtVat.Text, out var vat);
-                decimal net = decimal.Parse(txtNetTotal.Text);
+               
+                ComputeTotals(out var sub, out var discountAmount, out var vatAmount, out var net);
 
-                int saleId = _salesRepo.CreateSale(_userId, sub, dis, vat, net, _cart);
-                _lastSaleId=saleId;
+                int saleId = _salesRepo.CreateSale(_userId, sub, discountAmount, vatAmount, net, _cart);
+                _lastSaleId = saleId;
 
                 MessageBox.Show($"Sale completed.\nInvoice No: {saleId}");
 
+               
                 _cart.Clear();
                 txtDiscount.Text = "0";
-                txtVat.Text = "0";
+                txtVat.Text = VAT_PERCENT.ToString("0");
 
                 BindCart();
             }
@@ -210,7 +231,6 @@ namespace PharmacyManagementSystem.Forms
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
             if (_lastSaleId <= 0)
             {
                 MessageBox.Show("Please complete a sale first, then print the invoice.");
@@ -223,29 +243,27 @@ namespace PharmacyManagementSystem.Forms
             }
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                var q = txtSearch.Text.Trim();
-                var list = _invRepo.SearchAvailableBatches(q);
-
-                dgvBatches.AutoGenerateColumns = false;
-                dgvBatches.DataSource = list;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Search failed.\n" + ex.Message);
-            }
-
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Owner.Show(); 
-            this.Close();       
+           
+            if (this.Owner != null)
+                this.Owner.Show();
+
+            this.Close();
         }
 
+        
+
+        private void txtDiscount_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDiscount.Text))
+                txtDiscount.Text = "0";
+        }
+
+        private void txtDiscount_Enter(object sender, EventArgs e)
+        {
+            if (txtDiscount.Text.Trim() == "0")
+                txtDiscount.Clear();
+        }
     }
 }
