@@ -16,5 +16,12 @@ namespace PharmacyManagementSystem
         {
             InitializeComponent();
         }
+
+        private void clkbtn_Click(object sender, EventArgs e)
+        {
+            InventoryDashboard idb = new InventoryDashboard();
+            idb.Show();
+            this.Hide();
+        }
     }
 }

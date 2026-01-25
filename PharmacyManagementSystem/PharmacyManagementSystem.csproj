@@ -65,19 +65,32 @@
     <Compile Include="AdminUserManagement.Designer.cs">
       <DependentUpon>AdminUserManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="CashierDashboard.cs">
+    <Compile Include="Forms\PosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CashierDashboard.Designer.cs">
-      <DependentUpon>CashierDashboard.cs</DependentUpon>
+    <Compile Include="Forms\PosForm.Designer.cs">
+      <DependentUpon>PosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Forms\SaleDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SaleDetailsForm.Designer.cs">
+      <DependentUpon>SaleDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TodaySalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TodaySalesForm.Designer.cs">
+      <DependentUpon>TodaySalesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BatchSearchResult.cs" />
+    <Compile Include="Models\SaleDraftItem.cs" />
     <Compile Include="PharmacistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +100,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,8 +118,20 @@
     <EmbeddedResource Include="CashierDashboard.resx">
       <DependentUpon>CashierDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PosForm.resx">
+      <DependentUpon>PosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SaleDetailsForm.resx">
+      <DependentUpon>SaleDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TodaySalesForm.resx">
+      <DependentUpon>TodaySalesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineForm.resx">
+      <DependentUpon>MedicineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PharmacistDashboard.resx">
       <DependentUpon>PharmacistDashboard.cs</DependentUpon>
@@ -114,6 +145,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,5 +164,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
