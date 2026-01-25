@@ -20,23 +20,27 @@ namespace PharmacyManagementSystem.Forms
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            using (var f = new PosForm(_userId, _fullName))
-            {
-                f.ShowDialog();
-            }
+            PosForm f = new PosForm(_userId, _fullName);
+            f.Owner = this;     
+            this.Hide();        
+            f.Show();
         }
 
         private void btnTodaySales_Click(object sender, EventArgs e)
         {
-            using (var f = new TodaySalesForm())
-            {
-                f.ShowDialog();
-            }
+            TodaySalesForm f = new TodaySalesForm();
+            f.Owner = this;  
+            this.Hide();      
+            f.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();        
+            Login login = new Login();
+            login.Show();
         }
+
+
     }
 }

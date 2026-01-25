@@ -50,5 +50,11 @@ namespace PharmacyManagementSystem.Forms
 
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();  
+            this.Close();
+        }
     }
 }

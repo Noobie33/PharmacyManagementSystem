@@ -29,15 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
-            this.pnlBottom = new System.Windows.Forms.Panel();
-            this.lblTotalSales = new System.Windows.Forms.Label();
-            this.txtTotalSales = new System.Windows.Forms.TextBox();
-            this.lblNetTotal = new System.Windows.Forms.Label();
-            this.txtNetTotalSum = new System.Windows.Forms.TextBox();
             this.colSaleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCashier = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +40,12 @@
             this.colDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNetTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlBottom = new System.Windows.Forms.Panel();
+            this.txtNetTotalSum = new System.Windows.Forms.TextBox();
+            this.lblNetTotal = new System.Windows.Forms.Label();
+            this.txtTotalSales = new System.Windows.Forms.TextBox();
+            this.lblTotalSales = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.pnlBottom.SuspendLayout();
@@ -52,6 +53,7 @@
             // 
             // pnlTop
             // 
+            this.pnlTop.Controls.Add(this.btnBack);
             this.pnlTop.Controls.Add(this.btnLoad);
             this.pnlTop.Controls.Add(this.dtpDate);
             this.pnlTop.Controls.Add(this.lblDate);
@@ -60,23 +62,6 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1082, 79);
             this.pnlTop.TabIndex = 0;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(21, 9);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(39, 16);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "Date:";
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(66, 9);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpDate.TabIndex = 1;
             // 
             // btnLoad
             // 
@@ -87,6 +72,23 @@
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(66, 9);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpDate.TabIndex = 1;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(21, 9);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(39, 16);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "Date:";
             // 
             // dgvSales
             // 
@@ -112,52 +114,6 @@
             this.dgvSales.Size = new System.Drawing.Size(1082, 301);
             this.dgvSales.TabIndex = 1;
             this.dgvSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSales_CellDoubleClick);
-            // 
-            // pnlBottom
-            // 
-            this.pnlBottom.Controls.Add(this.txtNetTotalSum);
-            this.pnlBottom.Controls.Add(this.lblNetTotal);
-            this.pnlBottom.Controls.Add(this.txtTotalSales);
-            this.pnlBottom.Controls.Add(this.lblTotalSales);
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 543);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1082, 60);
-            this.pnlBottom.TabIndex = 2;
-            // 
-            // lblTotalSales
-            // 
-            this.lblTotalSales.AutoSize = true;
-            this.lblTotalSales.Location = new System.Drawing.Point(13, 16);
-            this.lblTotalSales.Name = "lblTotalSales";
-            this.lblTotalSales.Size = new System.Drawing.Size(79, 16);
-            this.lblTotalSales.TabIndex = 0;
-            this.lblTotalSales.Text = "Total Sales:";
-            // 
-            // txtTotalSales
-            // 
-            this.txtTotalSales.Location = new System.Drawing.Point(110, 13);
-            this.txtTotalSales.Name = "txtTotalSales";
-            this.txtTotalSales.ReadOnly = true;
-            this.txtTotalSales.Size = new System.Drawing.Size(120, 22);
-            this.txtTotalSales.TabIndex = 1;
-            // 
-            // lblNetTotal
-            // 
-            this.lblNetTotal.AutoSize = true;
-            this.lblNetTotal.Location = new System.Drawing.Point(274, 19);
-            this.lblNetTotal.Name = "lblNetTotal";
-            this.lblNetTotal.Size = new System.Drawing.Size(65, 16);
-            this.lblNetTotal.TabIndex = 2;
-            this.lblNetTotal.Text = "Net Total:";
-            // 
-            // txtNetTotalSum
-            // 
-            this.txtNetTotalSum.Location = new System.Drawing.Point(361, 19);
-            this.txtNetTotalSum.Name = "txtNetTotalSum";
-            this.txtNetTotalSum.ReadOnly = true;
-            this.txtNetTotalSum.Size = new System.Drawing.Size(120, 22);
-            this.txtNetTotalSum.TabIndex = 3;
             // 
             // colSaleId
             // 
@@ -215,6 +171,62 @@
             this.colNetTotal.Name = "colNetTotal";
             this.colNetTotal.ReadOnly = true;
             // 
+            // pnlBottom
+            // 
+            this.pnlBottom.Controls.Add(this.txtNetTotalSum);
+            this.pnlBottom.Controls.Add(this.lblNetTotal);
+            this.pnlBottom.Controls.Add(this.txtTotalSales);
+            this.pnlBottom.Controls.Add(this.lblTotalSales);
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 543);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1082, 60);
+            this.pnlBottom.TabIndex = 2;
+            // 
+            // txtNetTotalSum
+            // 
+            this.txtNetTotalSum.Location = new System.Drawing.Point(361, 19);
+            this.txtNetTotalSum.Name = "txtNetTotalSum";
+            this.txtNetTotalSum.ReadOnly = true;
+            this.txtNetTotalSum.Size = new System.Drawing.Size(120, 22);
+            this.txtNetTotalSum.TabIndex = 3;
+            // 
+            // lblNetTotal
+            // 
+            this.lblNetTotal.AutoSize = true;
+            this.lblNetTotal.Location = new System.Drawing.Point(274, 19);
+            this.lblNetTotal.Name = "lblNetTotal";
+            this.lblNetTotal.Size = new System.Drawing.Size(65, 16);
+            this.lblNetTotal.TabIndex = 2;
+            this.lblNetTotal.Text = "Net Total:";
+            // 
+            // txtTotalSales
+            // 
+            this.txtTotalSales.Location = new System.Drawing.Point(110, 13);
+            this.txtTotalSales.Name = "txtTotalSales";
+            this.txtTotalSales.ReadOnly = true;
+            this.txtTotalSales.Size = new System.Drawing.Size(120, 22);
+            this.txtTotalSales.TabIndex = 1;
+            // 
+            // lblTotalSales
+            // 
+            this.lblTotalSales.AutoSize = true;
+            this.lblTotalSales.Location = new System.Drawing.Point(13, 16);
+            this.lblTotalSales.Name = "lblTotalSales";
+            this.lblTotalSales.Size = new System.Drawing.Size(79, 16);
+            this.lblTotalSales.TabIndex = 0;
+            this.lblTotalSales.Text = "Total Sales:";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(433, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(102, 47);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "< Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // TodaySalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -254,5 +266,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNetTotal;
+        private System.Windows.Forms.Button btnBack;
     }
 }
