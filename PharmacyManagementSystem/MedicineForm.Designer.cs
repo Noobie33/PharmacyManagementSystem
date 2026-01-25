@@ -41,6 +41,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dgvMedicines = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicines)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,9 +144,9 @@
             this.btnClear.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(725, 377);
+            this.btnClear.Location = new System.Drawing.Point(764, 386);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(233, 55);
+            this.btnClear.Size = new System.Drawing.Size(164, 55);
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -155,9 +157,9 @@
             this.btnAdd.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(387, 377);
+            this.btnAdd.Location = new System.Drawing.Point(178, 386);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(223, 55);
+            this.btnAdd.Size = new System.Drawing.Size(202, 55);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add Medicine";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -168,9 +170,9 @@
             this.button3.BackColor = System.Drawing.Color.Lavender;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(49, 377);
+            this.button3.Location = new System.Drawing.Point(12, 386);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(214, 55);
+            this.button3.Size = new System.Drawing.Size(160, 55);
             this.button3.TabIndex = 11;
             this.button3.Text = "<< Back";
             this.button3.UseVisualStyleBackColor = false;
@@ -188,6 +190,33 @@
             this.dgvMedicines.RowTemplate.Height = 28;
             this.dgvMedicines.Size = new System.Drawing.Size(1015, 250);
             this.dgvMedicines.TabIndex = 12;
+            this.dgvMedicines.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicines_CellContentClick);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(386, 386);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(187, 55);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Lavender;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(591, 386);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(167, 55);
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // MedicineForm
             // 
@@ -195,6 +224,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1039, 709);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvMedicines);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnAdd);
@@ -233,5 +264,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgvMedicines;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

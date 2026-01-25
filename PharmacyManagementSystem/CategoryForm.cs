@@ -61,5 +61,35 @@ namespace PharmacyManagementSystem
             ib.Show();
             this.Hide();
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (txtCategoryName.Text == "")
+            {
+                MessageBox.Show("Select a category first");
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure to delete this category?", "Confirm", MessageBoxButtons.YesNo );
+
+            if (result == DialogResult.Yes)
+            {
+                SqlConnection con = new SqlConnection(conString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand( "DELETE FROM Categories WHERE CategoryName = @name", con);
+                cmd.Parameters.AddWithValue("@name", txtCategoryName.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Category Deleted Successfully");
+                txtCategoryName.Clear();
+                LoadCategories();
+            }
+        }
+        private void dgvCategories_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtCategoryName.Text = dgvCategories.Rows[e.RowIndex].Cells["CategoryName"].Value.ToString();
+            }
+        }
     }
 }
